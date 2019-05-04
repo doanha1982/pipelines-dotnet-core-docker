@@ -24,12 +24,12 @@ steps:
 
 - powershell: |
     # Using an input-macro:
-    Write-Host "This works: $(mySecret)"
+    Write-Host "This works: $(dockerPassword)"
 
     # Using the env var directly:
-    Write-Host "This does not work: $env:MYSECRET"
+    Write-Host "This does not work: $env:dockerPassword"
 
     # Using the mapped env var:
     Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
   env:
-    MY_MAPPED_ENV_VAR: $(mySecret)
+    MY_MAPPED_ENV_VAR: $(dockerPassword)
