@@ -22,6 +22,10 @@ steps:
 #  env:
 #    pswd: $(dockerPassword)
 
+- script: docker login -u $(dockerId) -p $env:pswd
+  env:
+    pswd:  $(dockerPassword)
+
 - powershell: |
     # Using an input-macro:
     Write-Host "This works: $(dockerPassword)"
