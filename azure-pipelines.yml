@@ -15,23 +15,7 @@ variables:
   imageName: 'pipelines-dotnet-core-docker'
 
 steps:
-#- script: |
-#    docker build -t $(dockerId)/$(imageName) .
-#    docker login -u $(dockerId) -p $env:pswd
-#    docker push $(dockerId)/$(imageName)
-#  env:
-#    pswd: $(dockerPassword)
-
-- script: docker login -u $(dockerId) -p $(dockerPassword)
-
-- powershell: |
-    # Using an input-macro:
-    Write-Host "This works: $(dockerPassword)"
-
-    # Using the env var directly:
-    Write-Host "This does not work: $env:dockerPassword"
-
-    # Using the mapped env var:
-    Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
-  env:
-    MY_MAPPED_ENV_VAR: $(dockerPassword)
+- script: |
+    docker build -t $(dockerId)/$(imageName) .
+    docker login -u $(dockerId) -p $(dockerPassword)
+    docker push $(dockerId)/$(imageName)
