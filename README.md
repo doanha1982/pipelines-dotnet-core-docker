@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/hafromsg/Learning%20CI-CD%20Development/_apis/build/status/doanha1982.pipelines-dotnet-core-docker?branchName=master)](https://dev.azure.com/hafromsg/Learning%20CI-CD%20Development/_build/latest?definitionId=8&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
