@@ -15,9 +15,21 @@ variables:
   imageName: 'pipelines-dotnet-core-docker'
 
 steps:
-- script: |
-    docker build -t $(dockerId)/$(imageName) .
-    docker login -u $(dockerId) -p $env:pswd
-    docker push $(dockerId)/$(imageName)
+#- script: |
+#    docker build -t $(dockerId)/$(imageName) .
+#    docker login -u $(dockerId) -p $env:pswd
+#    docker push $(dockerId)/$(imageName)
+#  env:
+#    pswd: $(dockerPassword)
+
+- powershell: |
+    # Using an input-macro:
+    Write-Host "This works: $(mySecret)"
+
+    # Using the env var directly:
+    Write-Host "This does not work: $env:MYSECRET"
+
+    # Using the mapped env var:
+    Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
   env:
-    pswd: $(dockerPassword)
+    MY_MAPPED_ENV_VAR: $(mySecret)
