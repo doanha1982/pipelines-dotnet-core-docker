@@ -22,9 +22,7 @@ steps:
 #  env:
 #    pswd: $(dockerPassword)
 
-- script: docker login -u $(dockerId) -p $env:pswd
-  env:
-    pswd:  $(dockerPassword)
+- script: docker login -u $(dockerId) -p $(dockerPassword)
 
 - powershell: |
     # Using an input-macro:
